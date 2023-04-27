@@ -72,7 +72,7 @@ then perform a rails db:migrate.
 
 6. Now add this to the model so that rails recognize the uploader
 e.g.
-### app/models/user.rb
+### app/models/user.rb  : model file
 mount_uploader :avatar, AvatarUploader
 
 7. Finally a sample controller create file method will look like this : 
