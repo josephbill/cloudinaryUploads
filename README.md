@@ -35,7 +35,7 @@ gem ‘cloudinary’
 2. then run bundle install
 3. create cloudinary.yml on your ‘config’ folder, and put the security setting there.
 
-# config/cloudinary.yml
+### config/cloudinary.yml
 development:
   cloud_name: "sample"
   api_key: "98785549878945"
@@ -51,17 +51,17 @@ rails g uploader avatar
 where avatar is a reference to the file u need to upload. 
 
 class AvatarUploader < CarrierWave::Uploader::Base
- # Include RMagick or MiniMagick support:
- # include CarrierWave::RMagick
- # include CarrierWave::MiniMagick
+ ### Include RMagick or MiniMagick support:
+ ### include CarrierWave::RMagick
+ ### include CarrierWave::MiniMagick
  include Cloudinary::CarrierWave
- # Choose what kind of storage to use for this uploader:
+ ### Choose what kind of storage to use for this uploader:
  #storage :file
- # storage :fog# Override the directory where uploaded files will be stored.
- # This is a sensible default for uploaders that are meant to be mounted:
- # def store_dir
- # “uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}”
- # end
+ ### storage :fog# Override the directory where uploaded files will be stored.
+ ### This is a sensible default for uploaders that are meant to be mounted:
+ ### def store_dir
+ ### “uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}”
+ ### end
  end 
 
 5. Add the avatar to existing migrations for the table that saves this data. 
@@ -72,7 +72,7 @@ then perform a rails db:migrate.
 
 6. Now add this to the model so that rails recognize the uploader
 e.g.
-# app/models/user.rb
+### app/models/user.rb
 mount_uploader :avatar, AvatarUploader
 
 7. Finally a sample controller create file method will look like this : 
